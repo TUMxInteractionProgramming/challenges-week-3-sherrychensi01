@@ -22,25 +22,62 @@ button, strong {
     text-transform: uppercase;
 }
 
+/* #5 Layout*/
 
-
+/*#5 #split #left-align the channels area*/
 /* APP BAR */
-
-/* #4 #sweat address both #app-bar s */
-h1 {
-    background-color: #3F51B5;
-    color: white;
+#channels{
+    position: absolute;
+    height:100%;
+    width:40%;    
 }
 
+/*#5 #split #right align the rest*/
+#chat{
+    position:absolute;
+    height:100%;
+    width:60%;
+    left:40%;
+}
+
+h1{
+    background-color: #3F51B5;
+    color: white;
+/*#5 #app-bar #general styles*/
+    height:64px;
+    font-size:20px;
+    font-weight:medium;
+    /*#5 #app-bar spacing*/
+    box-sizing: border-box;
+    padding:20px 24px 20px 24px;
+    }
+h1#left-app-bar {
+    /* #5 LEFT-APP-BAR spacing */
+    padding-left: 72px;
+}
+#channels #a{
+    /*#5 #app-bar #bottom-align*/
+    position:absolute;
+    top:10px;
+    left:16px;
+}
 
 /* CHANNELS LIST */
-
 /* #4 #sweat #channels */
 ul {
     /* #3 #channels #list modifies h2 to ul */
     background-color: white;
+    
     /* #3 #channels #bullets removed */
     list-style-type: none;
+    
+    /*#5 #channels #scroll*/
+    position:absolute;
+    top: 64px;/*height of app-bar*/
+    bottom:72;
+    width:100%;
+    overflow-y: auto;   
+    
 }
 
 li {
@@ -51,6 +88,21 @@ li {
     font-size: 16px;
     /* #4 #channel tiles are separated by #lines */
     border-bottom: 1px solid #F5F5F5;
+    position:relative;
+}
+
+/*#5 #channels #icons*/
+li .channel-meta{
+    position:absolute;
+    right:16px;
+    top:12px;
+}
+li img {
+    /* #4 #middle vertical alignment of icons in the #channels list */
+    vertical-align: middle;
+    position:absolute;
+    right: 40px;
+    top:12px;
 }
 
 /* #4 active #channel is #highlighted */
@@ -59,23 +111,24 @@ li.selected {
     border-left: 4px solid #3F51B5;
 }
 
-li img {
-    /* #4 #middle vertical alignment of icons in the #channels list */
-    vertical-align: middle;
-}
-
 /* TAB BAR */
 
 /* #4 #sweat #tab-bar */
-#tab-bar {
+#tab-bar,#chat-bar {
     /* #3 #tab-bar #container should be white */
     background-color: white;
     /* #3 #tab-bar #container has all buttons centered */
     text-align: center;
+    /*#5 #tab-bar #bottom*/
+    position:absolute;
+    bottom:0;
+    width:100%;
+    /*#5 #tab-bar #flexify*/
+    display:flex
 }
 
 /* #4 add styles to #tab-bar #buttons */
-#tab-bar button {
+#tab-bar button, #chat-bar button {
     background-color: white;
     border: none;
     font-size: 13px;
@@ -84,6 +137,9 @@ li img {
     width: 33%;
     height: 72px;
     padding: 16px;
+    
+    /*#5 #tab-bar #flexify*/
+    flex:1;
 }
 
 /* #4 #tab-bar buttons do have a #line-break and images are centered due to the left&right auto margin */
@@ -98,9 +154,17 @@ li img {
     border-bottom: 4px solid #3F51B5;
 }
 
-
 /* MESSAGES */
 /* #4 select #specific #messages by class and re-assign element styles according to their #hierarchy in a nested way */
+
+/*#5 #messages #scroll*/
+#messages{
+    position:absolute;
+    top: 64px;/*height of app-bar*/
+    bottom:72;
+    width:100%;
+    overflow-y: auto;   
+    }
 .message {
     /* #3 #chat #width*/
     width: 80%;
@@ -110,11 +174,18 @@ li img {
 
     /* #4 #message distance to next message container*/
     margin-bottom: 8px;
+    
+    /*#5 #messages #reposition*/
+    position:relative;
 }
 
 
 .message h3 {
     font-size: medium;
+    /*#5 #messages #tweaks*/
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
 }
 
 .message h3 em {
@@ -125,6 +196,8 @@ li img {
 .message h3 a {
     /* #3 #chat #link color is primary text */
     color: black;
+    /*#5 #messages #column*/
+    width:30%
 }
 
 .message p {
@@ -136,10 +209,45 @@ li img {
     background-color: #CDDC39;
     color: black;
     text-transform: uppercase;
+    position:absolute;
+    right:8px;
+    bottom:8px;
 }
 
 /* #4 left align own #messages using #margins */
 .message.own {
     margin-left: 17.5%;
 }
+
+
+#emojis{
+    /*#5 #smileys #box*/
+    /*#6 #smile #hide*/
+    display:none;
+    background-color:white;
+    border: 1px solid black;
+    
+    position:absolute;
+    box-sizing:border-box;
+    height:300px;
+    width:300px;
+    left:16px;
+    top:-284px;
+    padding:16px;
+    
+    font-size:28px;
+    text-align:left;
+    overflow-y:auto;
+    
+}
+#chat-bar button{
+    /*#5 #smileys #override*/
+    width:auto;
+    flex-grow:0;
+} 
+/*#6 #channels #fix the link color in css to primary-text*/
+#channel-location a {color:white;}
+
+h1 img{position:absolute;
+       right:16px;}
 
